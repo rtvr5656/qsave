@@ -19,13 +19,13 @@ QSave is a godot 4.X script made to save and load a project data in a easier and
 
 function:
 
-```
+```gdscript
 QSave.s_save(data, save_location) # save_location isn't required if you want to save it as the default save location
 ```
 
 recommended way:
 
-```
+```gdscript
 print(QSave.s_save(data))
 ```
 
@@ -37,13 +37,13 @@ That way it'll print any possible error.
 
 function:
 
-```
+```gdscript
 QSave.s_load(load_location) # load_location isn't required if you want to load it from the default save location
 ```
 
 recommended way:
 
-```
+```gdscript
 var data : Dictionary
 
 func _ready():
