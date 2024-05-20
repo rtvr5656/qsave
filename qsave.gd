@@ -64,6 +64,13 @@ func load_file(location : String = game_info["save_file_location"][game_info["de
 	else:
 		return [false, get_info("time") + "Save File couldn't be loaded", 5]
 
+func create_dir(name : String = "New Folder", location : String = "user://"):
+	if not DirAccess.dir_exists_absolute(location + name):
+		DirAccess.make_dir_absolute(location + name)
+		return [true, location + name, 7]
+	else:
+		return [false, get_info("time") + "Folder " + name + " already exists in " + location, 8]
+
 
 ### save functions ###
 func s_save(file : Dictionary = game_info["default_save_file"][game_info["default_save_file"]], location : String = game_info["save_file_location"][game_info["default_save_file_location"]]):
@@ -99,3 +106,6 @@ func s_load(location : String = game_info["save_file_location"][game_info["defau
 	else:
 		return l_file
 	
+
+func s_resetsave(location : String = game_info["save_file_location"][game_info["default_save_file_location"]]):
+	print(s_save(game_info["default_save_file"][game_info["default_save_file"]], location))
